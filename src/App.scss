@@ -4,19 +4,23 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif;
-	color: white;
+	// color: white;
 	text-decoration: none;
+}
+a,h1,p{
+	color: white;
 }
 body,
 html {
 	height: 100%;
 	width: 100%;
+	background-color: black;
 }
 
 .header {
 	height: 100px;
 	width: 100%;
-	background-color: black;
+	background-color: transparent;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
