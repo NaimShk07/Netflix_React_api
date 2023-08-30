@@ -2,14 +2,45 @@ $bg: black;
 
 .banner {
 	height: 100vh;
+	>.text{
+		padding-left: 120px;
+		>h1{
+			font-size: 70px;
+			margin-top: 100px;
+		}
+		>h3{
+			width: 50%;
+			color: white;
+			margin-bottom: 15px;
+		}
+		button{
+			font-size: 17px;
+			padding: 7px 20px;
+			border-radius: 4px;
+			border: none;
+			margin-right: 10px;
+			display: inline-flex;
+			align-items: center;
+			i{
+				font-size: 20px;
+				margin:  0 3px;
+			}
+		}
+		.sec_btn{
+			background-color: #868686b6;
+			color: white;
+		}
+		
+
+	}
 }
 .row {
 	padding: 20px;
 	white-space: nowrap;
 
 	h1 {
-		padding: 15px;
-		padding-bottom: 0;
+		padding: 15px 0;
+		// padding-bottom: 20px;
 		font-size: 30px;
 		background-color: transparent;
 	}

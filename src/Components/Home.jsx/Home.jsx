@@ -4,6 +4,7 @@ import axios, { Axios } from 'axios';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 
+
 const apiKey = '?api_key=e13d660142a64785e100fe0b2c36353f';
 const apiUrl = 'https://api.themoviedb.org/3/movie/';
 const imgUrl = "https://image.tmdb.org/t/p/original";
@@ -11,13 +12,14 @@ const popular = 'popular';
 const upcoming = 'upcoming';
 const nowPlaying = 'now_playing';
 const topRated = 'top_rated';
+let randomNum = parseInt(Math.random() * 19);
 
 
-const Card = ({ img,title }) => {
+const Card = ({ img, title }) => {
    return (
       <div className='child_card'>
          <img src={img} alt="" />
-         <p style={{whiteSpace:'normal'}}> {title}</p>
+         <p style={{ whiteSpace: 'normal' }}> {title}</p>
       </div>
    );
 
@@ -30,9 +32,9 @@ const Row = ({ title, arr = [] }) => {
          <div className='card'>
             {
                arr.map((val, index) => (
-                  
-                     <Card key={index} img={`${imgUrl}${val.poster_path}`} title={val.title} />
-                  
+
+                  <Card key={index} img={`${imgUrl}${val.poster_path}`} title={val.title} />
+
 
                ))
             }
@@ -48,6 +50,7 @@ const Home = () => {
    const [nowPlayingVar, setnowPlayingVar] = useState([]);
    const [topRatedVar, settopRatedVar] = useState([]);
    const [genreVar, setgenreVar] = useState([]);
+   
 
    useEffect(() => {
       const fetchpopular = async () => {
@@ -81,13 +84,31 @@ const Home = () => {
 
    }, []);
 
+
+
+
    return (
       <section className='home'>
          <div className="banner" style={{
             background:
-               popularVar[0] ? `url(${`${imgUrl}/${popularVar[0].backdrop_path}`}) center center/cover no-repeat` : 'none'
+               popularVar[0] ? `url(${`${imgUrl}/${popularVar[randomNum].backdrop_path}`}) center center/cover no-repeat` : 'none'
          }} >
             <Header />
+
+            <div className="text">
+
+               <h1>
+                  {popularVar[0] ? `${popularVar[randomNum].title}` : 'Hello'}
+               </h1>
+               <h3>
+                  {popularVar[0] ? `${popularVar[randomNum].overview}` : 'Hello'}
+
+               </h3>
+               <button><i class="ri-play-circle-fill"></i>Play</button>
+               <button className='sec_btn'>More Info<i class="ri-information-line"></i></button>
+
+            </div>
+
 
          </div>
          <div className="genre">
